@@ -167,6 +167,23 @@ def read_toggle_btn(art: dict, key: str) -> None:
         st.rerun()
 
 
+def render_email_preview(art: dict, key: str) -> None:
+    """Mostra l'anteprima della narrativa email che verrà inviata."""
+    narrative = (art.get("email_narrativa") or "").strip()
+    if not narrative:
+        return
+    with st.expander("📄 Anteprima testo email (corpo narrativo)", expanded=False):
+        # Sostituisco i ritorni a capo doppi con divisori paragrafo per
+        # mantenere la stessa impaginazione che arriverà al destinatario.
+        paragraphs = [p.strip() for p in narrative.split("\n\n") if p.strip()]
+        for p in paragraphs:
+            st.markdown(
+                f"<div style='color:#c9d1d9;font-size:13px;line-height:1.65;"
+                f"margin-bottom:10px;'>{p.replace(chr(10), '<br>')}</div>",
+                unsafe_allow_html=True,
+            )
+
+
 def _do_send(arts: list[dict], recips: list[dict]) -> None:
     """Helper: send + show result messages. Registra sempre l'invio (anti-duplicati auto)."""
     cfg = load_email_config()
@@ -393,6 +410,7 @@ with t_new:
         st.markdown("")
         for art in new_arts:
             render_card(art)
+            render_email_preview(art, key=f"nrp_{art['id']}")
             read_toggle_btn(art, key=f"nr_{art['id']}")
 
 
@@ -474,6 +492,7 @@ with t_archive:
 
             for art in groups[day]:
                 render_card(art)
+                render_email_preview(art, key=f"arp_{art['id']}")
                 b1, b2, _ = st.columns([1.2, 0.9, 4])
                 with b1:
                     # Reversible toggle
