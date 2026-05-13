@@ -74,6 +74,50 @@ _SYSTEM = (
     "}"
 )
 
+# ── Rilevamento record "legacy" ────────────────────────────────────────────────
+# Stringhe-firma del vecchio fallback rule-based v1/v2. Servono a riconoscere
+# articoli salvati in archivio con la versione precedente del codice e a
+# rigenerarne l'analisi al primo caricamento dopo l'upgrade.
+LEGACY_RILEVANZA = (
+    "Aggiornamento potenzialmente rilevante per la direttiva NIS2 "
+    "(analisi automatica)."
+)
+LEGACY_IMPATTO = "Verificare applicabilità ai soggetti NIS2 dell'organizzazione."
+LEGACY_AZIONI  = (
+    "1. Leggere il documento completo. 2. Valutare impatto su obblighi NIS2."
+)
+
+
+def is_legacy_analysis(item: dict) -> bool:
+    """
+    Restituisce True se l'articolo è stato analizzato con la vecchia versione
+    del codice (testi generici) o se manca del campo `email_narrativa`.
+    """
+    rel    = (item.get("rilevanza_nis2")     or "").strip()
+    imp    = (item.get("impatto_ciso_grc")   or "").strip()
+    azioni = (item.get("azioni_consigliate") or "").strip()
+
+    if rel == LEGACY_RILEVANZA:
+        return True
+    if imp == LEGACY_IMPATTO:
+        return True
+    if azioni == LEGACY_AZIONI:
+        return True
+    if not item.get("email_narrativa"):
+        return True
+    return False
+
+
+def refresh_legacy_record(item: dict) -> dict:
+    """
+    Ri-applica il fallback rule-based v3 a un record che proviene dalla
+    vecchia versione del codice, preservando tutti i metadati di storage
+    (id, is_read, sent_to, first_seen, ecc.).
+    """
+    fresh = _rule_based(item)
+    return {**item, **fresh}
+
+
 _ollama_ok_cache: Optional[bool] = None
 
 

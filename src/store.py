@@ -58,6 +58,12 @@ def _make_id(item: dict) -> str:
 
 # ── Ingest ─────────────────────────────────────────────────────────────────────
 
+_ANALYSIS_FIELDS = (
+    "rilevanza_nis2", "impatto_ciso_grc", "azioni_consigliate",
+    "priorita", "ai_source", "email_narrativa",
+)
+
+
 def ingest_articles(analyzed_items: list[dict]) -> tuple[list[dict], list[dict]]:
     store    = _load_store()
     meta     = _load_meta()
@@ -89,6 +95,11 @@ def ingest_articles(analyzed_items: list[dict]) -> tuple[list[dict], list[dict]]
             # Backfill sent_to per record precedenti senza il campo
             if "sent_to" not in store[aid]:
                 store[aid]["sent_to"] = {}
+            # Aggiorna i campi di analisi: i nuovi (es. Ollama) sovrascrivono
+            # i vecchi (es. rule-based). Solo se nel nuovo item sono presenti.
+            for f in _ANALYSIS_FIELDS:
+                if item.get(f):
+                    store[aid][f] = item[f]
 
         if store[aid]["is_new"]:
             new_articles.append(store[aid])

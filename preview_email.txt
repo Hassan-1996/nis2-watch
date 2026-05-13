@@ -1,0 +1,34 @@
+Gentile Dott. Rossi,
+
+di seguito 1 aggiornamento rilevato in data 13/05/2026 sul portale ACN, con relativa analisi di impatto NIS2.
+
+======================================================================
+PRIORITA' ALTA
+Oggetto: Nis online le determine sugli adempimenti per i nuovi soggetti e sulle modalita di accesso alla piattaforma ACN
+Fonte:   https://www.acn.gov.it/portale/documents/d/guest/detacn_piattaformanis_251218-v9_signed
+======================================================================
+
+Segnaliamo che in data 13 aprile 2026 ACN ha pubblicato una determinazione dal titolo "Nis online le determine sugli adempimenti per i nuovi soggetti e sulle modalita di accesso alla piattaforma ACN". L'aggiornamento è stato rilevato dal nostro sistema di monitoraggio del portale ACN e, in base a un'analisi preliminare, presenta una rilevanza classificata come alta ai fini degli adempimenti NIS2.
+
+Il documento richiede una verifica puntuale di applicabilità ai soggetti NIS2 dell'organizzazione, con particolare attenzione a eventuali nuovi obblighi formali, termini di trasmissione e categorie di soggetti coinvolte. È opportuno valutare in modo coordinato fra funzione Compliance, Sicurezza delle Informazioni e Punto di Contatto NIS l'effettivo perimetro di impatto e le eventuali azioni operative da intraprendere.
+
+In via prudenziale, suggeriamo di: (1) acquisire e leggere integralmente il documento; (2) mappare i requisiti rispetto al perimetro NIS2 dell'organizzazione; (3) valutare l'aggiornamento delle policy, procedure e registri interessati; (4) pianificare eventuali comunicazioni o trasmissioni formali verso ACN.
+
+Per completezza, si riporta il link al documento:
+https://www.acn.gov.it/portale/documents/d/guest/detacn_piattaformanis_251218-v9_signed
+
+Considerata la natura formale dell'aggiornamento e la possibile ristrettezza delle finestre temporali, suggeriamo di attivare tempestivamente i competenti referenti interni. Restiamo a disposizione per supportarvi nell'interpretazione del documento, nell'analisi di impatto sul vostro perimetro NIS2 e nella predisposizione della documentazione eventualmente necessaria. Qualora alcuni aspetti non risultassero chiari o desideraste un confronto sull'applicabilità al vostro contesto, parliamone: siamo a disposizione per un approfondimento dedicato.
+
+--- Scheda tecnica ---
+Rilevanza NIS2  : Aggiornamento pubblicato dal portale ACN potenzialmente rilevante per gli adempimenti NIS2. Oggetto: "Nis online le determine sugli adempimenti per i nuovi soggetti e sulle modalita di accesso alla piattaforma ACN".
+Impatto CISO/GRC: Necessaria verifica di applicabilità sui soggetti NIS2 dell'organizzazione e sui processi di Compliance/GRC, con particolare attenzione a nuovi obblighi formali e scadenze.
+Azioni operative: 1. Acquisire e leggere il documento integrale. 2. Mappare i requisiti rispetto al perimetro NIS2. 3. Coordinare la valutazione con il Punto di Contatto NIS. 4. Aggiornare policy, procedure o registri eventualmente impattati.
+
+======================================================================
+PARLIAMONE
+======================================================================
+Qualora qualche aspetto dell'analisi non risultasse chiaro, o desideraste un confronto sull'applicabilita' degli aggiornamenti al vostro perimetro NIS2, restiamo a disposizione per un approfondimento dedicato.
+
+--
+NIS2 Regulatory Watch - monitoraggio automatico portale ACN
+https://www.acn.gov.it/portale/nis
